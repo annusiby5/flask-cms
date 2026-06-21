@@ -18,8 +18,8 @@ To set up this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/joswinemmanuel/Contact-Management-System.git
-   cd Contact-Management-System
+   git clone https://github.com/annusiby5/flask-cms.git
+   cd flask-cms
    ```
 
 2. Install the required packages:
@@ -38,3 +38,35 @@ python app.py
 ```
 Visit `http://127.0.0.1:5000` in your web browser to access the application.
 
+## Technologies Used
+
+* Python
+* Flask
+* SQLite3
+* HTML
+* CSS
+* JavaScript
+* Jinja2
+
+## Project Structure
+
+```text
+flask-cms/
+│
+├── app.py
+├── model.py
+├── templates/
+├── static/
+│   └── css/
+│   └── images/
+│   └── js/
+├── instance/
+│   └── contacts.db
+├── LICENSE
+├── README.md
+└── requirements.txt
+```
+
+## License
+
+This project is open source and available under the MIT License.
