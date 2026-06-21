@@ -1,0 +1,899 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Edu AU VIC WA NT Arrows", cursive;
+    margin: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+    min-height: 10vh;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    background-color: #fff;
+    display: grid;
+    padding: 30px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* width: 80%; */
+    /* max-width: 600px; */
+    min-width: 600px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+}
+
+.container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.extra-margin-top {
+    margin-top: 20px;
+}
+
+.extra-margin-bottom {
+    margin-bottom: 40px;
+}
+
+.container-login {
+    margin-top: 60px;
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-contact,
+.contact-list {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.contact-list:hover,
+.add-contact:hover {
+    /* border: 1px solid #8e8e8e; */
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.4);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: "Edu AU VIC WA NT Arrows", cursive;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.4s ease;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+input[type="date"]:hover,
+select:hover,
+input[type="file"]:hover,
+textarea:hover {
+    /* border: 1px solid #333; */
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.4);
+}
+
+.custom-file-upload {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Edu AU VIC WA NT Arrows", cursive;
+    font-size: 16px;
+    transition: all 0.5s ease;
+}
+
+.custom-file-upload:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+}
+
+.link-button {
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    width: calc(100% - 30px);
+    margin-bottom: 20px;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.5s ease;
+}
+
+.link-button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.button {
+    background-color: #007bff;
+    width: 100%;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Edu AU VIC WA NT Arrows", cursive;
+    font-size: 16px;
+    transition: all 0.5s ease;
+}
+
+.button.primary {
+    background-color: #28a745;
+}
+
+.button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+p {
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.auth-form .form-group {
+    margin-bottom: 15px;
+}
+
+.auth-form .button {
+    margin-top: 10px;
+}
+
+.auth-form p {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #555;
+    text-align: center;
+}
+
+.auth-form p a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-form p a:hover {
+    color: #3f9cff;
+}
+
+.error {
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+/*-------------------------HEADER FOOTER---------------------------*/
+
+.header {
+    /* background: linear-gradient(105deg, rgba(91, 104, 235, 1) 0%, rgba(40, 225, 253, 1) 100%); */
+    background-color: white;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 15px 30px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    margin: 10px 5px;
+    transition: box-shadow 0.5s ease;
+}
+
+.header:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 200,
+        'opsz' 48
+}
+
+.header span {
+    color: #007bff;
+    transform: scale(1.2);
+    transition: all 0.5s ease;
+}
+
+.header span:hover {
+    transform: scale(1.5);
+    opacity: 0.8;
+}
+
+.scroll-to-session {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+
+.scroll-to-session:hover {
+    color: #2b92ff;
+    transform: scale(1.2);
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.auth-button {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.auth-button.login {
+    background-color: #28a745;
+}
+
+.auth-button:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.landing-image {
+    width: 500px;
+    height: auto;
+    transition: all 0.5s ease;
+    margin: 20px 0px;
+}
+
+.landing-image:hover {
+    transform: scale(1.1);
+}
+
+.main-content {
+    padding: 40px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content h2 {
+    color: #007bff;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.main-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 800px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    row-gap: 75px;
+    column-gap: 100px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.features-title {
+    font-size: 2em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.feature {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.feature:hover {
+    box-shadow: 0 0 10px #007bff;
+    transform: scale(1.1);
+}
+
+.feature h3 {
+    color: #007bff;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footer {
+    background-image: url(../images/footer-bg.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 250px;
+    padding-bottom: 100px;
+    color: #333;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footer-box {
+    background-color: rgba(255, 255, 255, 0.531);
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.footer-box:hover {
+    transform: scale(1.1);
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+.footer p a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer p a:hover {
+    color: #3697ff;
+}
+
+
+/*********************************Search Feature*****************************************/
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-bar .form-style {
+    display: flex;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+    font-size: 1em;
+}
+
+.search-bar button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: "Edu AU VIC WA NT Arrows", cursive;
+    transition: all 0.5s ease;
+}
+
+.search-bar button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+
+/*********************************New Contacts List*****************************************/
+
+.contact-list {
+    max-width: 1000px;
+    margin: 2rem auto;
+    margin-top: 10px;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-radius: 12px;
+    font-family: "Edu AU VIC WA NT Arrows", cursive;
+}
+
+.contact-list h2 {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.contact-table {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+.contact-table:hover {
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.4);
+}
+
+.contact-header,
+.contact-row {
+    /* display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    padding: 0.8rem;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: all 0.5s ease; */
+    display: grid;
+    grid-template-columns: 1.3fr 1.3fr 2.5fr 2fr 2.5fr 1.6fr 1fr;
+    /* Adjust these as needed */
+    gap: 1rem;
+    padding: 0.8rem;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: all 0.5s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.contact-header {
+    font-weight: bold;
+    background-color: #ffffff;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 2px solid #eee;
+    color: #444;
+}
+
+.contact-row:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.contact-row:hover {
+    background-color: #d6ecff;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.4);
+}
+
+/******************Alerts***************************/
+
+
+.alert {
+    position: relative;
+    padding: 0 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.alert:hover {
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.4);
+}
+
+.alert.contacts-page {
+    width: 50%;
+}
+
+.alert.show {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    padding: 1rem 1.25rem;
+}
+
+.alert-primary {
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+}
+
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.alert strong {
+    font-weight: 600;
+}
+
+.alert .btn-close {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.btn-close-primary {
+    color: #084298;
+}
+
+.btn-close-danger {
+    color: #842029;
+}
+
+/********************Edit Button****************/
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.icon-button {
+    /* background-color: transparent; */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.5s ease;
+}
+
+.edit-button {
+    background-color: #007bff;
+}
+
+.delete-button {
+    background-color: #e60000;
+}
+
+.view-button {
+    background-color: #28a745;
+}
+
+.icon-button:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/************************ Modal styles ******************************************/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.5 ease;
+}
+
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 12% auto;
+    padding: 30px;
+    padding-top: 15px;
+    width: 80%;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+}
+
+.modal-content:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    color: white;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Edu AU VIC WA NT Arrows", cursive;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.5s ease;
+}
+
+.modal-buttons button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.modal-buttons .yes-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.modal-buttons .no-button {
+    background-color: #d30000;
+    color: white;
+}
+
+.close-button {
+    color: #767676;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/******************Porfile styles ****************************/
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-icon {
+    cursor: pointer;
+    padding: 8px;
+    /* Adjust padding as needed */
+}
+
+.dropdown-content {
+    display: none;
+    /* opacity: 0; */
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 120px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    right: 0;
+    border-radius: 8px;
+    /* Align to the right */
+    transition: all 5s ease;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    /* text-align: center; */
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.dropdown-content a:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.dropdown-content a:hover {
+    background-color: #d6ecff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/**************** search button *******************/
+
+.search-bar .search-button {
+    background-color: #fff;
+    color: #007bff;
+    transition: all 0.5s ease;
+}
+
+.search-bar .search-button:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/************ Profile *************/
+
+.profile-picture-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.profile-picture-container:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.default-profile-icon {
+    font-size: 60px;
+    color: #007bff;
+}
+
+.user-info {
+    margin-top: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #000000;
+}
+
+.info-value {
+    color: #000000;
+}
+
+/************ Pagination ********************/
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 12px;
+}
+
+.page-link {
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.page-link:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.page-link.disabled {
+    background-color: #cccccc;
+    color: #000000;
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.page-number {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/****************View Model*******************/
+
+.user-info.view {
+    font-size: 19px;
+    padding-top: 10px;
+}

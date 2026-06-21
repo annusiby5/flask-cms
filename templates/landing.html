@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400;700">
+</head>
+
+<body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <div class="header">
+        <a href="{{ url_for('landing') }}" Register><span class="material-symbols-rounded">
+                home
+            </span></a>
+        <div class="auth-buttons">
+            <a href="#home" class="scroll-to-session">Home</a>
+            <a href="#features" class="scroll-to-session">Features</a>
+            <a href="#contact" class="scroll-to-session">Contact</a>
+            <a href="{{ url_for('login') }}" class="auth-button login">Login</a>
+            <a href="{{ url_for('register') }}" class="auth-button">Register</a>
+        </div>
+    </div>
+
+    <main id="home" class="main-content">
+        <h2 data-aos="fade-up" data-aos-delay="200">Contact Management System</h2>
+        <p data-aos="fade-up" data-aos-delay="300">Easily manage all your contacts in one place. Whether it's friends,
+            family, or professional connections, our
+            simple and powerful system keeps you organized and connected.</p>
+
+        <img class="landing-image" src="{{ url_for('static', filename='images/slider-dec.png') }}" alt="Mobile">
+
+        <div id="features" class="features-scroll-target"></div>
+        <h3 data-aos="fade-up" class="features-title">Key Features</h3>
+        <div class="features">
+            <div class="feature">
+                <h3 data-aos="fade-up" data-aos-delay="200">Easy Contact Adding</h3>
+                <p data-aos="fade-up" data-aos-delay="300">Quickly add new contacts with all the essential information,
+                    including name, email, phone number, and
+                    more. Our simple form ensures you capture every detail.</p>
+            </div>
+            <div class="feature">
+                <h3 data-aos="fade-up" data-aos-delay="200">Centralized Organization</h3>
+                <p data-aos="fade-up" data-aos-delay="300">Say goodbye to scattered contact information. Keep all your
+                    contacts neatly organized and easily
+                    accessible from any device.</p>
+            </div>
+            <div class="feature">
+                <h3 data-aos="fade-up" data-aos-delay="200">Quick Search and Filtering</h3>
+                <p data-aos="fade-up" data-aos-delay="300">Find the contact you need in seconds with our robust search
+                    and filtering options. Search by name,
+                    email, or phone number.</p>
+            </div>
+            <div class="feature">
+                <h3 data-aos="fade-up" data-aos-delay="200">Secure and Reliable</h3>
+                <p data-aos="fade-up" data-aos-delay="300">Your data is important. We ensure that your contact
+                    information is stored securely and reliably, so
+                    you can access it whenever you need it.</p>
+            </div>
+            <div class="feature">
+                <h3 data-aos="fade-up" data-aos-delay="200">Accessible Anywhere</h3>
+                <p data-aos="fade-up" data-aos-delay="300">Our web-based system allows you to access your contacts from
+                    any device with an internet connection.
+                    Stay connected on the go.</p>
+            </div>
+            <div class="feature">
+                <h3 data-aos="fade-up" data-aos-delay="200">REST API Access</h3>
+                <p data-aos="fade-up" data-aos-delay="300">Developers can leverage our REST API to integrate contact
+                    data with other applications, enabling
+                    seamless workflows and automation.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="footer-box">
+            <p data-aos="fade-up" data-aos-delay="100">&copy; 2026 Contact Management System</p>
+            <p data-aos="fade-up" data-aos-delay="200">Developed with Flask</p>
+            <p data-aos="fade-up" data-aos-delay="300">Contact Us : <a
+                    href="https://annusiby5.github.io/portfolio-card/">annusiby.me</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>

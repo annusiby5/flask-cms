@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400;700">
+</head>
+
+<body>
+    <div class="header">
+        <a href="{{ url_for('landing') }}" Register><span class="material-symbols-rounded">
+                home
+            </span></a>
+        <div class="profile-dropdown">
+            <div class="profile-icon">
+                <span class="material-symbols-rounded">
+                person
+                </span>
+            </div>
+            <div class="dropdown-content">
+                <a href="{{ url_for('profile') }}">Profile</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+        <div class="container extra-margin-top extra-margin-bottom">
+            <h1>Test Data Added to DB</h1>
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+            <a href="/test" class="link-button" style="margin: 20px 0px;">Add More</a>
+
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/profilePic.js') }}"></script>
+
+</body>
+
+</html>

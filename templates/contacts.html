@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400;700">
+</head>
+
+<body>
+  <div class="header" style="margin-bottom: 20px;">
+    <a href="{{ url_for('landing') }}" Register><span class="material-symbols-rounded">
+        home
+      </span></a>
+    <!-- <div class="auth-buttons">
+      <a href="{{ url_for('logout') }}" class="auth-button">Logout</a>
+    </div> -->
+    <div class="profile-dropdown">
+      <div class="profile-icon">
+        <span class="material-symbols-rounded">
+          person
+        </span>
+        <!-- <img src="{{ url_for('static', filename='profile_pictures/Lastest_pic_1.jpg') }}" alt="Profile Picture"
+          style="width: 30px; height: 30px; border-radius: 50%;"> -->
+      </div>
+      <div class="dropdown-content">
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category=="primary" %}
+    <div class="alert alert-{{ category }} contacts-page" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close btn-close-{{ category }}" aria-label="Close">✖</button>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith%}
+    <!-- <div class="alert alert-primary contacts-page" role="alert">
+      <strong>{{ "message" }}</strong>
+      <button type="button" class="btn-close btn-close-primary" aria-label="Close">✖</button>
+    </div> -->
+  </div>
+
+
+  <div class="wrap">
+    <div class="container extra-margin-top extra-margin-bottom">
+
+      <h1>Contact Management System</h1>
+
+      <a href="/new-contact" class="link-button">Add New Contact</a>
+
+      <div class="search-bar">
+        <form action="{{ url_for('search_contacts', page=1) }}" method="get" class="form-style">
+          {% if search_query %}
+          <input type="text" name="query" value="{{ search_query }}">
+          {% else %}
+          <input type="text" name="query" placeholder="Search contacts...">
+          {% endif %}
+          <input type="hidden" name="new-search" value="1">
+          <button type="submit" class="search-button"><span class="material-symbols-rounded" style="font-size: 32px;">
+              search
+            </span></button>
+        </form>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      {% if category=="info" %}
+      <div class="alert alert-primary" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close btn-close-primary" aria-label="Close">✖</button>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      {% for message in get_flashed_messages() %}
+      <div class="alert alert-danger" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close btn-close-danger" aria-label="Close">✖</button>
+      </div>
+      {% endfor %}
+
+      <div id="contact-list" class="contact-list">
+        <h2>Contact List</h2>
+        {% if contacts.items %}
+
+        <div class="contact-table">
+          <div class="contact-header">
+            <span>First Name</span>
+            <span>Last Name</span>
+            <span>Address</span>
+            <span>Company</span>
+            <span>Email</span>
+            <span>Phone</span>
+            <span>Actions</span>
+          </div>
+          {% for contact in contacts %}
+          <div class="contact-row">
+            <span>{{ contact.first_name }}</span>
+            <span>{{ contact.last_name }}</span>
+            <span>{{ contact.address }}</span>
+            <span>{{ contact.company }}</span>
+            <span>{{ contact.email }}</span>
+            <span>{{ contact.phone_number }}</span>
+
+            <span class="action-buttons">
+
+              <form action="/edit/{{ contact.id }}" method="get" style="display: inline;">
+                <button type="submit" class="icon-button edit-button">✎</button>
+              </form>
+
+              <button type="submit" class="icon-button delete-button"
+                onclick="openDeleteModal('{{ contact.id }}', '{{ contact.first_name }} {{ contact.last_name }}')">
+                ✖
+              </button>
+
+              <button type="submit" class="icon-button view-button"
+                onclick="openDetailsModal('{{ contact.id }}')">👁</button>
+
+            </span>
+
+            <div id="detailsModal-{{ contact.id }}" class="modal">
+              <div class="modal-content" style="width: 29%;">
+                <span class="close-button" onclick="closeDetailsModal('{{ contact.id }}')">&times;</span>
+                <h3 style="font-size:30px; margin-top:4px">Contact Details</h3>
+                <div class="user-info view">
+                  <div class="info-row">
+                    <span class="info-label">First Name:</span>
+                    <span class="info-value">{{ contact.first_name }}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Last Name:</span>
+                    <span class="info-value">{{ contact.last_name }}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Address:</span>
+                    <span class="info-value">{{ contact.address }}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Company:</span>
+                    <span class="info-value">{{ contact.company }}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Email:</span>
+                    <span class="info-value">{{ contact.email }}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">Phone:</span>
+                    <span class="info-value">{{ contact.phone_number }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="deleteModal-{{ contact.id }}" class="modal">
+              <div class="modal-content">
+                <span class="close-button" onclick="closeDeleteModal('{{ contact.id }}')">&times;</span>
+                <p style="font-size: large; margin-bottom: 30px;"><strong>Are you sure you want to delete contact "{{
+                    contact.first_name }}
+                    {{ contact.last_name
+                    }}"?</strong></p>
+                <div class="modal-buttons">
+                  <form action="/delete/{{ contact.id }}" method="post" style="display:inline;">
+                    <button type="submit" class="yes-button">Yes, Delete</button>
+                  </form>
+                  <button type="button" class="no-button" onclick="closeDeleteModal('{{ contact.id }}')">No,
+                    Cancel</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+
+        {% if search_query %}
+
+        <div class="pagination" style="margin-top: 30px; margin-bottom:15px; display: flex; justify-content: center;">
+          {% if contacts.has_prev %}
+          <a href="{{ url_for('search_contacts', page=contacts.prev_num, query=search_query) }}#contact-list"
+            class="page-link">&lt;</a>
+          {% else %}
+          <a href="{{ url_for('search_contacts', page=contacts.prev_num, query=search_query) }}#contact-list"
+            class="page-link disabled">&lt;</a>
+          {% endif %}
+
+          <span class="page-number" style="margin: 0 10px;">Page {{ contacts.page }} of {{ contacts.pages }}</span>
+
+          {% if contacts.has_next %}
+          <a href="{{ url_for('search_contacts', page=contacts.next_num, query=search_query) }}#contact-list"
+            class="page-link">&gt;</a>
+          {% else %}
+          <a href="{{ url_for('search_contacts', page=contacts.next_num, query=search_query) }}#contact-list"
+            class="page-link disabled">&gt;</a>
+          {% endif %}
+        </div>
+
+        {% else %}
+
+        <div class="pagination" style="margin-top: 30px; margin-bottom:15px; display: flex; justify-content: center;">
+          {% if contacts.has_prev %}
+          <a href="{{ url_for('contacts', page=contacts.prev_num) }}#contact-list" class="page-link">&lt;</a>
+          {% else %}
+          <a href="{{ url_for('contacts', page=contacts.prev_num) }}#contact-list"
+            class="page-link {% if not contacts.has_prev %}disabled{% endif %}">&lt; </a>
+          {% endif %}
+
+          <span class="page-number" style="margin: 0 10px;">Page {{ contacts.page }} of {{ contacts.pages }}</span>
+
+          {% if contacts.has_next %}
+          <a href="{{ url_for('contacts', page=contacts.next_num) }}#contact-list" class="page-link">&gt;</a>
+          {% else %}
+          <a href="{{ url_for('contacts', page=contacts.next_num) }}#contact-list"
+            class="page-link {% if not contacts.has_next %}disabled{% endif %}">&gt; </a>
+          {% endif %}
+        </div>
+
+        {% endif %}
+
+        {% else %}
+        <p style="width: 1000px;">No contacts available</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/viewButton.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/deleteButton.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/alertButton.js') }}"></script>
+
+
+</body>
+
+</html>
