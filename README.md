@@ -11,7 +11,7 @@ This project is a Contact Management System built using Flask. It provides a str
 - Add, edit, search, view and delete contacts
 - Notifications while performing an action
 - Edit or delete user account
-- Responsive design with a user-friendly interface
+- Responsive design with a user friendly interface
 
 ## Installation
 To set up this project locally, follow these steps:
